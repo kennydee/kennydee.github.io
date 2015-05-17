@@ -1,783 +1,1360 @@
-<!doctype html>
-<html>
-	<head>
-	
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui">
-	
-	<title>Kenny DITS</title>
-	
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">
-	
-	<style type="text/css">
-	@import url(
-	https://fonts.googleapis.com/css?family=Lato:400,700
-);
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kenny DITS</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- link rel="shortcut icon" href="favicon.ico" / -->
+    <style>
+      .relative {
+  position: relative;
+}
+.clear-margin {
+  margin: 0;
+}
+.space-top {
+  margin-top: 10px;
+}
+.space-right {
+  margin-right: 10px;
+}
+.icon-left {
+  margin-right: 5px;
+}
+.icon-right {
+  margin-left: 5px;
+}
+.labels {
+  word-spacing: 5px;
+  line-height: 2;
+}
+.label-keyword {
+  display: inline-block;
+  background: #7eb0db;
+  color: white;
+  font-size: 0.9em;
+  padding: 5px;
+  border: 1px solid #357ebd;
+}
+.link-disguise {
+  color: inherit;
+}
+.link-disguise:hover {
+  color: inherit;
+}
+.clear-margin {
+  margin: 0;
+}
+@media (max-width: 992px) {
+  .clear-margin-sm {
+    margin-bottom: 0;
+  }
+}
 body {
-	background: #fff;
-	font-family: Lato, sans-serif;
-	margin: 0 0 80px;
+  font-family: 'Lato';
+  background: #f0f0f0;
+  color: #333333;
 }
-a {
-	color: #2ecc71;
+.main {
+  padding: 5px;
 }
-a:focus,
-a:hover {
-	color: #f1c40f;
-	text-decoration: none;
+.card {
+  background: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 3px;
+  min-height: 300px;
+  padding: 10px;
 }
-p {
-	line-height: 1.5;
-	margin: 0;
+.card-nested {
+  min-height: 0;
+  margin-bottom: 10px;
+  border-width: 1px 0 0 0;
 }
-p + p {
-	margin-top: 10px;
+.card-nested:before,
+.card-nested:after {
+  content: " ";
+  display: table;
 }
-h1,
-h2,
-h3,
-h4 {
-	margin-top: 0
-}
-section {
-	margin-top: 30px;
-}
-li {
-	line-height: 1.8;
-	list-style: none;
-}
-li:before {
-	content: "\f052";
-	float: left;
-	font: 13px Octicons;
-	margin-top: 6px;
-	margin-left: -20px;
-	opacity: .1;
-	position: absolute;
-}
-blockquote {
-	border-left: 5px solid #e7e9ec;
-	font-size: 14px;
-}
-em {
-	color: #95a5a6;
-	font-weight: normal;
-	font-style: normal;
-}
-h4 span:first-child {
-	color: #000;
-	font-weight: bold;
-}
-.container {
-	max-width: 750px;
-	padding: 0 30px;
-}
-.col-sm-6 {
-	margin-bottom: 10px;
-}
-.col-sm-12 h4 {
-	margin-top: 12px; 
-}
-.col-sm-12 + .col-sm-12 {
-	margin-top: 30px;
-}
-#header {
-	background: #f4f6f6;
-	padding: 50px 0;
-	margin-bottom: 30px;
-}
-#header h2 {
-	color: #95a5a6;
-	font-size: 24px;
-}
-#content h3 {
-	color: #f1c40f;
-	font-size: 26px;
-	margin-top: -4px;
-}
-#content aside {
-	text-align: right;
-	padding-right: 30px;
-}
-#profiles .network {
-	text-transform: capitalize;
-}
-#work .position,
-#volunteer .position {
-	font-weight: bold;
-	margin-bottom: 8px;
-}
-#education .area {
-	font-weight: bold;
-}
-#education .area:before {
-	content: "\f0d7";
-	font: 16px Octicons;
-	margin-right: 6px;
-}
-#education .studyType {
-	margin-left: 25px;
-}
-#awards .summary,
-#publications .summary {
-	margin-top: 8px;
-}
-#publications .website a:before {
-	content: attr(href);
-}
-
-@media (min-width: 480px) {
-	.strike-through {
-		border-top: 1px solid #f4f6f6;
-		height: 20px;
-		margin-top: 12px;
-		margin-bottom: -2px;
-		position: relative;
-	}
-	.strike-through span,
-	.strike-through a {
-		background: #fff;
-		position: absolute;
-	}
-	.strike-through span:first-child {
-		padding-right: 20px;
-		margin-top: -12px;
-	}
-	.strike-through span + span {
-		font-size: 14px;
-		margin-top: -10px;
-		padding-left: 20px;
-		right: 0;
-	}
-}
-@media (max-width: 768px) {
-	.col-sm-6:last-child {
-		margin-bottom: 0px;
-	}
-	#content aside {
-		margin-bottom: 20px;
-		padding-right: 0;
-		text-align: left;
-	}
-	#publications .website a:before {
-		content: "View publication";
-	}
+.card-nested:after {
+  clear: both;
 }
 @media (max-width: 480px) {
-	h1 {
-		font-size: 26px;
-	}
-	.date {
-		font-size: 14px;
-		margin-bottom: 5px;
-	}
-	.strike-through span:first-child {
-		margin-bottom: 7px;
-	}
-	.strike-through span {
-		display: block;
-	}	
-	#header {
-		margin-bottom: 10px;
-		padding: 40px 0;
-	}
-	#actions {
-		display: none;
-	}
+  .card-nested {
+    padding: 5px 0;
+  }
+}
+.background-card {
+  padding: 10px 20px;
+}
+.card-wrapper {
+  padding: 5px;
+}
+@media (max-width: 992px) {
+  .card-wrapper {
+    float: none !important;
+  }
+}
+.text-bolder {
+  font-weight: bold;
+}
+.background-details .detail {
+  display: table;
+  padding: 10px 0;
+}
+.background-details .detail .icon {
+  min-width: 45px;
+  max-width: 45px;
+  text-align: center;
+}
+.background-details .detail .info {
+  width: 100%;
+}
+.background-details .detail .title,
+.background-details .detail .icon {
+  color: #707070;
+}
+.background-details .detail .mobile-title {
+  display: none;
+}
+@media (max-width: 480px) {
+  .background-details .detail .mobile-title {
+    display: inline-block;
+    margin-left: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    vertical-align: middle;
+  }
+}
+.background-details .detail .icon,
+.background-details .detail .info {
+  display: table-cell;
+  padding: 0 10px;
+}
+@media (max-width: 480px) {
+  .background-details .detail {
+    display: block;
+  }
+  .background-details .detail .icon {
+    max-width: inherit;
+    min-width: inherit;
+    text-align: left;
+  }
+  .background-details .detail .icon,
+  .background-details .detail .info {
+    display: block;
+    padding: 10px 0;
+  }
+  .background-details .detail .title {
+    display: none;
+  }
+}
+.info .content.has-sidebar {
+  width: 80%;
+  box-sizing: border-box;
+  float: left;
+  padding: 0 10px;
+  border-right: 1px solid #cdcdcd;
+}
+@media (max-width: 992px) {
+  .info .content.has-sidebar {
+    width: 100%;
+    border-right: 0;
+  }
+}
+@media (max-width: 480px) {
+  .info .content.has-sidebar {
+    padding: 0 2px;
+  }
+}
+.info .sidebar {
+  margin-left: 80%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+@media (max-width: 480px) {
+  ul {
+    padding-left: 25px;
+  }
+}
+.current-event {
+  font-size: 8px;
+  color: #5ACE24;
+  position: absolute;
+  right: 100%;
+  top: 4px;
+  left: -10px;
+}
+/*
+    Credits: http://codyhouse.co/demo/smart-fixed-navigation/index.html
+*/
+.floating-nav-trigger {
+  width: 50px;
+  height: 50px;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+  -webkit-transition: background-color 0.5s ease;
+  -o-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+  display: block;
+  border-radius: 50%;
+  text-align: center;
+  padding-top: 10px;
+  background-color: white;
+  font-size: 1.5em;
+  color: #357ebd;
+  z-index: 100;
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+.floating-nav-trigger .close-icon {
+  display: none;
+}
+.floating-nav-trigger:hover {
+  color: #1f496e;
+  background-color: #e6e6e6;
+  text-decoration: none;
+}
+.floating-nav-trigger.is-open {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.floating-nav-trigger.is-open .close-icon {
+  display: inherit;
+}
+.floating-nav-trigger.is-open .fa-bars {
+  display: none;
+}
+.floating-nav-trigger.is-open:hover {
+  background-color: white;
+}
+.floating-nav {
+  -webkit-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+  -webkit-transform-origin: 100% 100%;
+  -moz-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+  -webkit-transition: transform 0.3s, visibility 0s 0.3s;
+  -o-transition: transform 0.3s, visibility 0s 0.3s;
+  transition: transform 0.3s, visibility 0s 0.3s;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24);
+  position: fixed;
+  z-index: 50;
+  right: 10px;
+  bottom: 10px;
+  background-color: white;
+  width: 90%;
+  max-width: 400px;
+  visibility: hidden;
+  overflow: hidden;
+}
+.floating-nav ul {
+  font-size: 1.2em;
+  margin: 0;
+}
+.floating-nav ul li {
+  border-bottom: 1px solid #eff2f6;
+}
+.floating-nav ul li a {
+  padding: 20px;
+  text-decoration: none;
+  color: #357ebd;
+  display: block;
+}
+.floating-nav ul li a:hover {
+  color: #1f496e;
+}
+.floating-nav ul li i.fa {
+  margin-right: 10px;
+}
+.floating-nav ul li:last-child {
+  border-bottom: 0;
+}
+.floating-nav.is-visible {
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: transform 0.3s, visibility 0s 0s;
+  -o-transition: transform 0.3s, visibility 0s 0s;
+  transition: transform 0.3s, visibility 0s 0s;
+  visibility: visible;
+}
+@media (max-width: 992px) {
+  .profile-card-wrapper {
+    position: relative;
+  }
+}
+.profile-pic {
+  padding: 20px 0;
+}
+@media (max-width: 992px) {
+  .profile-pic {
+    padding: 10px 0;
+  }
+}
+.profile-pic img {
+  width: 100px;
+  height: 100px;
+}
+@media (max-width: 992px) {
+  .name {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 768px) {
+  .contact-details {
+    text-align: center;
+  }
+}
+.contact-details .detail {
+  display: table;
+  padding: 10px 0;
+}
+.contact-details .detail .icon {
+  padding: 0 10px;
+  color: #707070;
+}
+@media (max-width: 992px) {
+  .contact-details .detail .icon {
+    padding: 0 5px 0 0;
+  }
+}
+.contact-details .detail .info {
+  font-size: 0.8em;
+}
+.contact-details .detail .icon,
+.contact-details .detail .info {
+  display: table-cell;
+  vertical-align: middle;
+}
+@media (max-width: 768px) {
+  .contact-details .detail {
+    position: relative;
+    float: left;
+    width: 100%;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+@media (max-width: 992px) {
+  .contact-details .detail {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding: 10px;
+  }
+  .contact-details .detail .icon,
+  .contact-details .detail .info {
+    display: inline-block;
+  }
+}
+@media (max-width: 992px) and (min-width: 768px) {
+  .contact-details .detail {
+    float: left;
+    width: 25%;
+  }
+}
+.social-links {
+  line-height: 2.5;
+}
+.social-link {
+  margin-left: 5px;
+  min-width: 35px;
+  display: inline-block;
+}
+.social-link:first-child {
+  margin-left: 0;
+}
+.social-link:hover {
+  text-decoration: none;
+}
+.link-github {
+  color: #454545;
+}
+.link-github:hover,
+.link-github:focus {
+  text-decoration: none;
+  color: #2b2b2b;
+}
+.link-twitter {
+  color: #33ccff;
+}
+.link-twitter:hover,
+.link-twitter:focus {
+  text-decoration: none;
+  color: #00bfff;
+}
+.link-blog {
+  color: #f36f24;
+}
+.link-blog:hover,
+.link-blog:focus {
+  text-decoration: none;
+  color: #d8560c;
+}
+.link-linkedin {
+  color: #007bb6;
+}
+.link-linkedin:hover,
+.link-linkedin:focus {
+  text-decoration: none;
+  color: #005983;
+}
+.link-skype {
+  color: #12a5f4;
+}
+.link-skype:hover,
+.link-skype:focus {
+  text-decoration: none;
+  color: #0986ca;
+}
+.link-instagram {
+  color: #3f729b;
+}
+.link-instagram:hover,
+.link-instagram:focus {
+  text-decoration: none;
+  color: #305777;
+}
+.link-stackoverflow {
+  color: #8e8e92;
+}
+.link-stackoverflow:hover,
+.link-stackoverflow:focus {
+  text-decoration: none;
+  color: #747479;
+}
+.link-stackexchange {
+  color: #62b0df;
+}
+.link-stackexchange:hover,
+.link-stackexchange:focus {
+  text-decoration: none;
+  color: #389bd6;
+}
+.link-lastfm {
+  color: #d12127;
+}
+.link-lastfm:hover,
+.link-lastfm:focus {
+  text-decoration: none;
+  color: #a51a1f;
+}
+.link-soundcloud {
+  color: #e8822d;
+}
+.link-soundcloud:hover,
+.link-soundcloud:focus {
+  text-decoration: none;
+  color: #cc6916;
+}
+.link-googleplus {
+  color: #dd4b39;
+}
+.link-googleplus:hover,
+.link-googleplus:focus {
+  text-decoration: none;
+  color: #c23321;
+}
+.link-youtube {
+  color: #dd4b39;
+}
+.link-youtube:hover,
+.link-youtube:focus {
+  text-decoration: none;
+  color: #c23321;
+}
+.link-pinterest {
+  color: #bd091f;
+}
+.link-pinterest:hover,
+.link-pinterest:focus {
+  text-decoration: none;
+  color: #8c0717;
+}
+.link-gratipay {
+  color: #663300;
+}
+.link-gratipay:hover,
+.link-gratipay:focus {
+  text-decoration: none;
+  color: #331a00;
+}
+.link-vimeo {
+  color: #17b3e8;
+}
+.link-vimeo:hover,
+.link-vimeo:focus {
+  text-decoration: none;
+  color: #128fba;
+}
+.link-behance {
+  color: #2c98cf;
+}
+.link-behance:hover,
+.link-behance:focus {
+  text-decoration: none;
+  color: #2379a5;
+}
+.link-codepen {
+  color: #1c1c1c;
+}
+.link-codepen:hover,
+.link-codepen:focus {
+  text-decoration: none;
+  color: #020202;
+}
+.link-foursquare {
+  color: #fa4778;
+}
+.link-foursquare:hover,
+.link-foursquare:focus {
+  text-decoration: none;
+  color: #f91554;
+}
+.link-reddit {
+  color: #545454;
+}
+.link-reddit:hover,
+.link-reddit:focus {
+  text-decoration: none;
+  color: #3b3b3b;
+}
+.link-spotify {
+  color: #acd200;
+}
+.link-spotify:hover,
+.link-spotify:focus {
+  text-decoration: none;
+  color: #829f00;
+}
+.link-tumblr {
+  color: #2d4661;
+}
+.link-tumblr:hover,
+.link-tumblr:focus {
+  text-decoration: none;
+  color: #1d2d3e;
+}
+.link-dribbble {
+  color: #ce366f;
+}
+.link-dribbble:hover,
+.link-dribbble:focus {
+  text-decoration: none;
+  color: #a82959;
+}
+.link-facebook {
+  color: #4b6daa;
+}
+.link-facebook:hover,
+.link-facebook:focus {
+  text-decoration: none;
+  color: #3b5687;
+}
+.link-angellist {
+  color: #000000;
+}
+.link-angellist:hover,
+.link-angellist:focus {
+  text-decoration: none;
+  color: #000000;
+}
+.link-bitbucket {
+  color: #205081;
+}
+.link-bitbucket:hover,
+.link-bitbucket:focus {
+  text-decoration: none;
+  color: #163758;
+}
+.card-skills {
+  position: relative;
+}
+.skill-level {
+  border-radius: 3px;
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 0;
+  width: 10px;
+  box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.2);
+}
+.skill-level .skill-progress {
+  position: absolute;
+  border-radius: 3px;
+  bottom: 0;
+  width: 100%;
+  -webkit-transition: height 1s ease;
+}
+.skill-level .skill-progress.beginner {
+  height: 50%;
+  background: #e74c3c;
+}
+.skill-level .skill-progress.intermediate {
+  height: 70%;
+  background: #f1c40f;
+}
+.skill-level .skill-progress.advanced {
+  height: 80%;
+  background: #428bca;
+}
+.skill-level .skill-progress.master {
+  height: 95%;
+  background: #5cb85c;
+}
+.skill-info {
+  margin-left: 10px;
+}
+@media (max-width: 480px) {
+  .skill-info {
+    margin-left: 20px;
+  }
+}
+@media (max-width: 768px) {
+  .quote {
+    font-size: inherit;
+  }
+}
+@media print {
+  a[href]:after {
+    content: none !important;
+  }
+  .profile-card {
+    text-align: center;
+  }
+  .profile-pic {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .profile-pic img {
+    border-radius: 0;
+  }
+  .name-and-profession {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 15px;
+  }
+  .contact-details .detail {
+    position: relative;
+    float: left;
+    width: 25%;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding: 0;
+  }
+  .floating-nav,
+  .floating-nav-trigger {
+    display: none;
+  }
+  .pagebreak {
+    page-break-before: always;
+  }
 }
 
-	</style>
-	
-	</head>
-	<body>
-	
-	<header id="header">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-9 col-sm-push-3">
-					<h1>
-						Kenny DITS
-					</h1>
-					<h2>
-						Responsable Etude &amp; Développement
-					</h2>
-				</div>
-			</div>
-		</div>
-	</header>
-	<div id="content" class="container">
+    </style>
+  </head>
 
-	<section id="contact" class="row">
-		<aside class="col-sm-3">
-			<h3>Contact</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-6">
-				<strong>Email</strong>
-				<div class="email"><a class="__cf_email__" href="/cdn-cgi/l/email-protection" data-cfemail="167d7378786f38727f626556717b777f7a3875797b">[email&#160;protected]</a><script cf-hash='f9e31' type="text/javascript">
-/* <![CDATA[ */!function(){try{var t="currentScript"in document?document.currentScript:function(){for(var t=document.getElementsByTagName("script"),e=t.length;e--;)if(t[e].getAttribute("cf-hash"))return t[e]}();if(t&&t.previousSibling){var e,r,n,i,c=t.previousSibling,a=c.getAttribute("data-cfemail");if(a){for(e="",r=parseInt(a.substr(0,2),16),n=2;a.length-n;n+=2)i=parseInt(a.substr(n,2),16)^r,e+=String.fromCharCode(i);e=document.createTextNode(e),c.parentNode.replaceChild(e,c)}}}catch(u){}}();/* ]]> */</script></div>
-			</div>
-			<div class="col-sm-6">
-				<strong>Phone</strong>
-				<div class="phone">+33662346610</div>
-			</div>
-			<div class="col-sm-6">
-				<strong>Website</strong>
-				<div class="website">
-					<a href="http://about.me/kenny.dits">http://about.me/kenny.dits</a>
-				</div>
-			</div>
-			</div>
-		</div>
-	</section>
-	<section id="about" class="row">
-		<aside class="col-sm-3">
-			<h3>About</h3>
-		</aside>
-		<div class="col-sm-9">
-			<p></p>
-		</div>
-	</section>
-	<section id="profiles" class="row">
-		<aside class="col-sm-3">
-			<h3>Profiles</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-				<div class="col-sm-6">
-					<strong class="network">
-						Twitter
-					</strong>
-					<div class="username">
-						<div class="url">
-							<a href="https://www.twitter.com/kenny_dee">kenny_dee</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+  <body itemscope itemtype="http://schema.org/Person">
+    <script>
+      window.onload = function () {
+        var toggleFloatingMenu = function() {
+          $( '.js-floating-nav' ).toggleClass( 'is-visible' );
+          $( '.js-floating-nav-trigger' ).toggleClass( 'is-open' );
+        };
 
-	<section id="work" class="row">
-		<aside class="col-sm-3">
-			<h3>Work</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>M6Web (filialle Groupe M6)</span>
-					<span class="date">
-						2008-04-30 — 
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://www.groupem6.fr">http://www.groupem6.fr</a>
-				</div>
-				<div class="position">
-					Responsable étude &amp; développement
-				</div>
-				<div class="summary">
-					<p>Manager d&#x27;une équipe de développement suite au rachat de Cyréalis. Equipe entre 10 et 20 développeurs web travaillant sur les portails thématique (Clubic.com, Turbo.fr, Jeuxvideo.fr, Deco.fr) et les sites de chaines (6play.fr, M6.fr, W9.fr, 6ter.fr, Paris-premiere.fr, Teva.fr)</p>
-				</div>
-				<h4>Highlights</h4>
-				<ul class="highlights">
-					<li class="bullet">Création/refonte des portails et sites de chaines (framework Php 5 maison, puis Symfony 2)</li>
-					<li class="bullet">Mise en place d&#x27;une culture &#x27;open-source&#x27; : conférences interne, blog technique publique, projet open-sourcé ...</li>
-					<li class="bullet">Industrialiser des pratiques : tests unitaire et fonctionnels, intégration continue, monitoring applicatif ...</li>
-					<li class="bullet">Pilote la refonte d&#x27;un gros projet en ReactJs isomorphic + Node.Js</li>
-				</ul>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Cyréalis</span>
-					<span class="date">
-						2006-06-12 — 
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://www.cyrealis.com">http://www.cyrealis.com</a>
-				</div>
-				<div class="position">
-					Développeur web
-				</div>
-				<div class="summary">
-					<p>En tant que développeur web (avec deux autres développeurs) pour gérer le développement des sites Clubic.com, Jeuxvideo.fr, Neteco.com, Mobinaute.com et Achetezfacile.com.</p>
-				</div>
-				<h4>Highlights</h4>
-				<ul class="highlights">
-					<li class="bullet">Développement (from scratch) d&#x27;Ozap.com, portail sur l&#x27;actualité des médias (depuis racheté par Webedia)</li>
-					<li class="bullet">Refonte de Clubic.com et Jeuxvideo.fr</li>
-					<li class="bullet">Société rachetée par M6Web en avril 2008</li>
-				</ul>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Arawak</span>
-					<span class="date">
-						2001-01-07 — 2006-06-11
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://www.arawak.fr">http://www.arawak.fr</a>
-				</div>
-				<div class="position">
-					Développeur web
-				</div>
-				<div class="summary">
-					<p>Création et maintenance d&#x27;un logiciel intranet dédiée aux collectivités locales en PHP 4, sur des BDD Mysql, Oracle</p>
-				</div>
-				<h4>Highlights</h4>
-				<ul class="highlights">
-					<li class="bullet">Formation PHP des inter-contrats</li>
-				</ul>
-			</div>
-			</div>
-		</div>
-	</section>
+        $( ".background-card" ).css( "min-height", window.screen.availHeight + "px" );
+        $( "[rel=tooltip]" ).tooltip();
+        $( '.js-floating-nav-trigger' ).on( 'click', function(e) {
+          e.preventDefault();
+          toggleFloatingMenu();
+        });
+        $( '.js-floating-nav a' ).on( 'click', toggleFloatingMenu );
+      }
+    </script>
+    <div class="container-fluid">
+      <div class="row main clearfix">
+        <a href="#" class="js-floating-nav-trigger floating-nav-trigger">
+          <i class="fa fa-bars"></i>
+          <span class="close-icon">&times;</span>
+        </a>
+        <nav class="floating-nav js-floating-nav">
+          <ul class="list-unstyled">
+            <li>
+              <a href="#work-experience">
+                <i class="fa fa-building"></i>
+                Experiences professionnelle
+              </a>
+            </li>
+            <li>
+              <a href="#skills">
+                <i class="fa fa-code"></i>
+                Compétences
+              </a>
+            </li>
+            <li>
+              <a href="#education">
+                <i class="fa fa-mortar-board"></i>
+                Education
+              </a>
+            </li>
+              <li>
+                <a href="#publications">
+                  <i class="fa fa-book"></i>
+                  Publications
+                </a>
+              </li>
+              <li>
+                <a href="#interests">
+                  <i class="fa fa-heart"></i>
+                  Interêts
+                </a>
+              </li>
+          </ul>
+        </nav>
 
-	
-	<section id="education" class="row">
-		<aside class="col-sm-3">
-			<h3>Education</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Alimentech Bourg en Bresse (01)</span>
-					<span class="date">
-						1999-01-09 — 2001-05-30
-					</span>
-				</h4>
-				<div class="area">
-					Informatique
-				</div>
-				<div class="studyType">
-					IUT
-				</div>
-				<h4>Courses</h4>
-				<ul class="courses">
-					<li>Génie logiciel</li>
-				</ul>
-			</div>
-			</div>
-		</div>
-	</section>
-	
-	
-	<section id="publications" class="row">
-		<aside class="col-sm-3">
-			<h3>Publications</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>[Vidéo] Introduction à Immutable.js, Relay, GraphQL et React Native</span>
-					<span class="date">
-						2015-01-04
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://tech.m6web.fr/immutablejs-relay-graphql-react-native/"></a>
-				</div>
-				<div class="publisher">
-					<em>Published by</em>
-					<strong>TechM6Web</strong>
-				</div>
-				<div class="summary">
-					<p>Compte rendu vidéo d&#x27;une étude de 3 technos découvertes à la Réact Conférence 2015 à San Francisco</p>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>CR React Conférence 2015</span>
-					<span class="date">
-						2015-10-02
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://tech.m6web.fr/cr-react-conf-2015-day-one"></a>
-				</div>
-				<div class="publisher">
-					<em>Published by</em>
-					<strong>TechM6Web</strong>
-				</div>
-				<div class="summary">
-					<p>Compte rendu des 2 journées de la Réact Conférence 2015 à San Francisco.</p>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>App isomorphic : La Single Page App parfaite ?</span>
-					<span class="date">
-						2014-12-04
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/"></a>
-				</div>
-				<div class="publisher">
-					<em>Published by</em>
-					<strong>TechM6Web</strong>
-				</div>
-				<div class="summary">
-					<p>Article présentant l&#x27;approche isomorphic pour créer une application JS tout en répondant à des problématiques de vitesse et de SEO.</p>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>[Conférencier] Nouveau socle pour une nouvelle vie chez M6Web - PHP Tour Lyon 2014</span>
-					<span class="date">
-						2014-06-23
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="https://www.youtube.com/watch?v=7lgWS6NULXo"></a>
-				</div>
-				<div class="publisher">
-					<em>Published by</em>
-					<strong>YouTube</strong>
-				</div>
-				<div class="summary">
-					<p>Vidéo de ma conférence sur l&#x27;industrialisation chez M6Web.</p>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Améliorer la webperf de son application JS avec GruntJs</span>
-					<span class="date">
-						2014-09-30
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://tech.m6web.fr/ameliorer-la-webperf-de-son-application-js-avec-gruntjs/"></a>
-				</div>
-				<div class="publisher">
-					<em>Published by</em>
-					<strong>TechM6Web</strong>
-				</div>
-				<div class="summary">
-					<p>Conseils et outils pour optimiser les performances de son application JS.</p>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Babitch, The story behind our table soccer web application</span>
-					<span class="date">
-						2014-04-23
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://tech.m6web.fr/babitch-the-story-behind-our-table-soccer-web-application"></a>
-				</div>
-				<div class="publisher">
-					<em>Published by</em>
-					<strong>TechM6Web</strong>
-				</div>
-				<div class="summary">
-					<p>Article en anglais expliquant les origines de l&#x27;application pour gérer les scores de babyfoot que nous avons crées.</p>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Compte rendu Velocity Europe 2013</span>
-					<span class="date">
-						2013-11-14
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://tech.m6web.fr/velocity-europe-2013-day-1.html"></a>
-				</div>
-				<div class="publisher">
-					<em>Published by</em>
-					<strong>TechM6Web</strong>
-				</div>
-				<div class="summary">
-					<p>Compte rendu de la Vélocity Conférence à Londres sur la scalabilité et les performances web.</p>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Performances web et &#x27;Disaster Case&#x27; sur applications mobile native</span>
-					<span class="date">
-						2013-07-02
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://tech.m6web.fr/performances-web-disaster-case-applications-mobile-native"></a>
-				</div>
-				<div class="publisher">
-					<em>Published by</em>
-					<strong>TechM6Web</strong>
-				</div>
-				<div class="summary">
-					<p>Comment tester la performance et les cas limites d&#x27;une application native à l&#x27;aide de CharlesProxy.</p>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>[Vidéo] Redis on fire !</span>
-					<span class="date">
-						2013-05-22
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://tech.m6web.fr/redis-on-fire"></a>
-				</div>
-				<div class="publisher">
-					<em>Published by</em>
-					<strong>YouTube</strong>
-				</div>
-				<div class="summary">
-					<p>Conférence vidéo pour présenter Redis aux équipes technique d&#x27;M6Web.</p>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>CR conférence Agora Cms 2013</span>
-					<span class="date">
-						2013-05-20
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://tech.m6web.fr/cr-conference-agora-cms-du-15-mai-2013"></a>
-				</div>
-				<div class="publisher">
-					<em>Published by</em>
-					<strong>TechM6Web</strong>
-				</div>
-				<div class="summary">
-					<p>Conférence vidéo pour présenter Redis aux équipes technique d&#x27;M6Web.</p>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>CR Real Time Conférence 2013</span>
-					<span class="date">
-						2013-04-25
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://tech.m6web.fr/cr-real-time-conference-europe-2013-day-1"></a>
-				</div>
-				<div class="publisher">
-					<em>Published by</em>
-					<strong>TechM6Web</strong>
-				</div>
-				<div class="summary">
-					<p>Compte rendu d&#x27;une conférence sur le &#x27;temps réel&#x27;</p>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>Organiser des conférences technique en interne</span>
-					<span class="date">
-						2012-05-12
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://tech.m6web.fr/organiser-des-conferences-technique-en-interne"></a>
-				</div>
-				<div class="publisher">
-					<em>Published by</em>
-					<strong>TechM6Web</strong>
-				</div>
-				<div class="summary">
-					<p>Pourquoi les sociétés avec équipe technique devraient organiser des conférences interne.</p>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>CR Vélocity Conférence Europe 2012</span>
-					<span class="date">
-						2012-04-10
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://tech.m6web.fr/cr-velocity-conference-europe-2012-day-1"></a>
-				</div>
-				<div class="publisher">
-					<em>Published by</em>
-					<strong>TechM6Web</strong>
-				</div>
-				<div class="summary">
-					<p>Compte rendu de la Vélocity Conférence à Londres sur la scalabilité et les performances web.</p>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>CR Vélocity Conférence US 2012</span>
-					<span class="date">
-						2012-28-05
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://tech.m6web.fr/cr-velocity-conference-day-1-dev-webperf"></a>
-				</div>
-				<div class="publisher">
-					<em>Published by</em>
-					<strong>TechM6Web</strong>
-				</div>
-				<div class="summary">
-					<p>Compte rendu de la Vélocity Conférence à Santa Clara (U.S.) sur la scalabilité et les performances web.</p>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>[Conférencier] Monitoring Applicatif, pourquoi et comment ? - Forum PHP (Paris) et Web Event #4 (Lyon)</span>
-					<span class="date">
-						2012-15-05
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="https://www.youtube.com/watch?v=VDAiz3d1_Po"></a>
-				</div>
-				<div class="publisher">
-					<em>Published by</em>
-					<strong>YouTube</strong>
-				</div>
-				<div class="summary">
-					<p>Vidéo de la conférence à la Web Event</p>
-				</div>
-			</div>
-			<div class="col-sm-12">
-				<h4 class="strike-through">
-					<span>[Conférencier] Comprendre, mesurer et améliorer les performances Web - Web Event #3 à Lyon</span>
-					<span class="date">
-						2011-05-07
-					</span>
-				</h4>
-				<div class="website pull-right">
-					<a href="http://www.slideshare.net/kennydee/initiation-webperf-comprendre-analyser-et-optimiser-les-performances-web-frontend"></a>
-				</div>
-				<div class="publisher">
-					<em>Published by</em>
-					<strong>SlideShare</strong>
-				</div>
-				<div class="summary">
-					<p>Slides de ma présentation.</p>
-				</div>
-			</div>
-			</div>
-		</div>
-	</section>
-	
-	<section id="skills" class="row">
-		<aside class="col-sm-3">
-			<h3>Skills</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Front-End</h4>
-				</div>
-				<ul class="keywords">
-					<li>AngularJs</li>
-					<li>ReactJs</li>
-					<li>Karma / Protractor / Jasmine</li>
-					<li>WebPerf</li>
-					<li>Grunt / Gulp</li>
-					<li>Less</li>
-				</ul>
-			</div>
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Back-end</h4>
-				</div>
-				<ul class="keywords">
-					<li>PHP</li>
-					<li>Symfony 2</li>
-					<li>Node.Js</li>
-					<li>Express</li>
-				</ul>
-			</div>
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>BDD</h4>
-				</div>
-				<ul class="keywords">
-					<li>MySQL</li>
-					<li>Redis</li>
-					<li>MongoDb</li>
-				</ul>
-			</div>
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Monitoring</h4>
-				</div>
-				<ul class="keywords">
-					<li>Graphite</li>
-					<li>StatsD</li>
-					<li>Kibana</li>
-				</ul>
-			</div>
-			</div>
-		</div>
-	</section>
+        <section class="col-md-3 card-wrapper profile-card-wrapper affix">
+          <div class="card profile-card">
+              <span class="profile-pic-container">
+                <div class="profile-pic">
+                  <img class="media-object img-circle center-block"  data-src="holder.js/100x100"
+                    alt="Kenny DITS" src="//www.gravatar.com/avatar/5332798c9b1a0dd2e3f82820897177e9?s=100&amp;r=pg&amp;d=mm" itemprop="image">
+                </div>
 
-	<section id="languages" class="row">
-		<aside class="col-sm-3">
-			<h3>Languages</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-6">
-				<div class="language">
-					<strong>Anglais</strong>
-				</div>
-				<div class="fluency">
-					Correct
-				</div>
-			</div>
-			</div>
-		</div>
-	</section>
+                <div class="name-and-profession">
+                  <h3 class="text-center text-bolder name" itemprop="name"> Kenny DITS</h3>
+                  <h5 class="text-muted text-center" itemprop="jobTitle">Responsable Etude &amp; Développement</h5>
+                </div>
+              </span>
+              <hr>
 
-	<section id="interests" class="row">
-		<aside class="col-sm-3">
-			<h3>Interests</h3>
-		</aside>
-		<div class="col-sm-9">
-			<div class="row">
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Jeux-vidéo</h4>
-				</div>
-				<ul class="keywords">
-					<li>Portal 2</li>
-					<li>Ori and the blind forest</li>
-					<li>Dying Light</li>
-					<li>Fifa 15</li>
-				</ul>
-			</div>
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Jeux de société</h4>
-				</div>
-				<ul class="keywords">
-					<li>Magic the gathering</li>
-					<li>Zombicide</li>
-				</ul>
-			</div>
-			<div class="col-sm-6">
-				<div class="name">
-					<h4>Sports</h4>
-				</div>
-				<ul class="keywords">
-					<li>Olympique Lyonnais</li>
-				</ul>
-			</div>
-			</div>
-		</div>
-	</section>
-	
+              <div class="contact-details clearfix">
 
-	</div>
-	
-	</body>
+                  <div class="detail">
+                    <span class="icon">
+                      <i class="fa fa-lg fa-location-arrow"></i>
+                    </span>
+                    <span class="info">
+                      Dagneux, FR
+                    </span>
+                  </div>
+
+                  <div class="detail">
+                    <span class="icon">
+                      <i class="fa fa-lg fa-phone"></i>
+                    </span>
+
+                    <span class="info" itemprop="telephone">
+                      +33662346610
+                    </span>
+                  </div>
+
+                  <div class="detail">
+                    <span class="icon">
+                      <i class="fa fa-lg fa-envelope"></i>
+                    </span>
+
+                    <span class="info">
+                      <a href="mailto:kenny.dits@gmail.com" class="link-disguise" itemprop="email">kenny.dits@gmail.com</a>
+                    </span>
+                  </div>
+
+                  <div class="detail">
+                    <span class="icon">
+                      <i class="fa fa-lg fa-link"></i>
+                    </span>
+
+                    <span class="info">
+                      <a href="http://about.me/kenny.dits" target="_blank">http://about.me/kenny.dits</a>
+                    </span>
+                  </div>
+
+                  <div class="detail">
+                    <span class="icon" title="Languages I speak">
+                      <i class="fa fa-lg fa-language"></i>
+                    </span>
+
+                    <span class="info">
+                      Anglais
+                    </span>
+                  </div>
+              </div>
+
+              <hr>
+
+              <div class="social-links text-center">
+                  <a class="fa fa-twitter fa-2x social-link link-twitter"
+                       href="//twitter.com/kenny_dee" target="_blank"></a>
+              </div>
+          </div>
+        </section>
+
+        <section class="col-md-9 card-wrapper pull-right">
+          <div class="card background-card">
+            <h4 class="text-uppercase text-bolder">Background</h4>
+            <hr>
+
+            <div class="background-details">
+
+              <div class="detail" id="work-experience">
+                <div class="icon">
+                  <i class="fa fa-lg fa-building"></i>
+                  <span class="mobile-title">Expériences professionnelle</span>
+                </div>
+                <div class="info">
+                  <h4 class="title text-uppercase">
+                    Expériences professionnelle
+                  </h4>
+
+                  <ul class="list-unstyled">
+                      <li class="card card-nested clearfix">
+                        <div class="content">
+                          <p class="clear-margin relative">
+                              <i class="fa fa-circle current-event"
+                                 rel="tooltip" title="Currently Working" data-placement="left"></i>
+                            <strong>Responsable étude &amp; développement</strong>,&nbsp;
+                              <a href="http://www.groupem6.fr"  target="_blank">M6Web (filialle Groupe M6)</a>
+                          </p>
+                          <p class="text-muted">
+                            <small>
+                              <span class="space-right">
+                                Apr, 2008 -
+                                  Present
+                              </span>
+
+                                <span>
+                                  <i class="fa fa-clock-o icon-left"></i>
+                                  7 years 1 month
+                                </span>
+                            </small>
+                          </p>
+                          <p>Manager d&#x27;une équipe de développement suite au rachat de Cyréalis. Equipe entre 10 et 20 développeurs web travaillant sur les portails thématique (Clubic.com, Turbo.fr, Jeuxvideo.fr, Deco.fr) et les sites de chaines (6play.fr, M6.fr, W9.fr, 6ter.fr, Paris-premiere.fr, Teva.fr)</p>
+                            <ul>
+                                <li> Création/refonte des portails et sites de chaines (framework Php 5 maison, puis Symfony 2) </li>
+                                <li> Mise en place d&#x27;une culture &#x27;open-source&#x27; : conférences interne, blog technique publique, projet open-sourcé ... </li>
+                                <li> Industrialiser des pratiques : tests unitaire et fonctionnels, intégration continue, monitoring applicatif ... </li>
+                                <li> Pilote la refonte d&#x27;un gros projet en ReactJs isomorphic + Node.Js </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="card card-nested clearfix">
+                        <div class="content">
+                          <p class="clear-margin relative">
+                              <i class="fa fa-circle current-event"
+                                 rel="tooltip" title="Currently Working" data-placement="left"></i>
+                            <strong>Développeur web</strong>,&nbsp;
+                              <a href="http://www.cyrealis.com"  target="_blank">Cyréalis</a>
+                          </p>
+                          <p class="text-muted">
+                            <small>
+                              <span class="space-right">
+                                Jun, 2006 -
+                                  Present
+                              </span>
+
+                                <span>
+                                  <i class="fa fa-clock-o icon-left"></i>
+                                  8 years 11 months
+                                </span>
+                            </small>
+                          </p>
+                          <p>En tant que développeur web (avec deux autres développeurs) pour gérer le développement des sites Clubic.com, Jeuxvideo.fr, Neteco.com, Mobinaute.com et Achetezfacile.com.</p>
+                            <ul>
+                                <li> Développement (from scratch) d&#x27;Ozap.com, portail sur l&#x27;actualité des médias (depuis racheté par Webedia) </li>
+                                <li> Refonte de Clubic.com et Jeuxvideo.fr </li>
+                                <li> Société rachetée par M6Web en avril 2008 </li>
+                            </ul>
+                        </div>
+                      </li>
+                      <li class="card card-nested clearfix">
+                        <div class="content">
+                          <p class="clear-margin relative">
+                            <strong>Développeur web</strong>,&nbsp;
+                              <a href="http://www.arawak.fr"  target="_blank">Arawak</a>
+                          </p>
+                          <p class="text-muted">
+                            <small>
+                              <span class="space-right">
+                                Invalid date -
+                                  Jun, 2006
+                              </span>
+
+                                <span>
+                                  <i class="fa fa-clock-o icon-left"></i>
+                                  0 day
+                                </span>
+                            </small>
+                          </p>
+                          <p>Création et maintenance d&#x27;un logiciel intranet dédiée aux collectivités locales en PHP 4, sur des BDD Mysql, Oracle</p>
+                            <ul>
+                                <li> Formation PHP des inter-contrats </li>
+                            </ul>
+                        </div>
+                      </li>
+                  </ul>
+                </div>
+              </div>
+
+                <div class="detail" id="skills">
+                  <div class="icon">
+                    <i class="fa fa-lg fa-code"></i>
+                    <span class="mobile-title">Skills</span>
+                  </div>
+                  <div class="info">
+                    <h4 class="title text-uppercase">
+                      Compétences
+                    </h4>
+
+                    <div class="content">
+                      <ul class="list-unstyled">
+                          <li class="card card-nested card-skills">
+                              <div class="skill-level" rel="tooltip" title="Master" data-placement="left">
+                                <div class="skill-progress master">
+                                </div>
+                              </div>
+                            <div class="skill-info">
+                              <strong>Front-End</strong>
+
+                              <div class="space-top labels">
+                                  <span class="label label-keyword">AngularJs</span>
+                                  <span class="label label-keyword">ReactJs</span>
+                                  <span class="label label-keyword">Karma / Protractor / Jasmine</span>
+                                  <span class="label label-keyword">WebPerf</span>
+                                  <span class="label label-keyword">Grunt / Gulp</span>
+                                  <span class="label label-keyword">Less</span>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="card card-nested card-skills">
+                              <div class="skill-level" rel="tooltip" title="Master" data-placement="left">
+                                <div class="skill-progress master">
+                                </div>
+                              </div>
+                            <div class="skill-info">
+                              <strong>Back-end</strong>
+
+                              <div class="space-top labels">
+                                  <span class="label label-keyword">PHP</span>
+                                  <span class="label label-keyword">Symfony 2</span>
+                                  <span class="label label-keyword">Node.Js</span>
+                                  <span class="label label-keyword">Express</span>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="card card-nested card-skills">
+                              <div class="skill-level" rel="tooltip" title="Master" data-placement="left">
+                                <div class="skill-progress master">
+                                </div>
+                              </div>
+                            <div class="skill-info">
+                              <strong>BDD</strong>
+
+                              <div class="space-top labels">
+                                  <span class="label label-keyword">MySQL</span>
+                                  <span class="label label-keyword">Redis</span>
+                                  <span class="label label-keyword">MongoDb</span>
+                              </div>
+                            </div>
+                          </li>
+                          <li class="card card-nested card-skills">
+                              <div class="skill-level" rel="tooltip" title="Master" data-placement="left">
+                                <div class="skill-progress master">
+                                </div>
+                              </div>
+                            <div class="skill-info">
+                              <strong>Monitoring</strong>
+
+                              <div class="space-top labels">
+                                  <span class="label label-keyword">Graphite</span>
+                                  <span class="label label-keyword">StatsD</span>
+                                  <span class="label label-keyword">Kibana</span>
+                              </div>
+                            </div>
+                          </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+              <div class="detail" id="education">
+                <div class="icon">
+                  <i class="fa fa-lg fa-mortar-board"></i>
+                  <span class="mobile-title">Education</span>
+                </div>
+                <div class="info">
+                  <h4 class="title text-uppercase">
+                    Education
+                  </h4>
+
+                  <div class="content">
+                    <ul class="list-unstyled">
+                        <li class="card card-nested">
+                          <div class="content">
+                            <p class="clear-margin relative">
+
+                              <strong>Informatique, IUT</strong>,&nbsp;
+                              Alimentech Bourg en Bresse (01)
+                            </p>
+                            <p class="text-muted">
+                              <small>
+                                Jan, 1999 -
+                                  Jan, 2001
+                              </small>
+                            </p>
+                            <i></i>
+                            <div class="space-top labels">
+                                <span class="label label-keyword">Génie logiciel</span>
+                            </div>
+                          </div>
+                        </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+
+
+                <div class="detail" id="publications">
+                  <div class="icon">
+                    <i class="fa fa-lg fa-book"></i>
+                    <span class="mobile-title">Publications</span>
+                  </div>
+                  <div class="info">
+                    <h4 class="title text-uppercase">
+                      Publications
+                    </h4>
+
+                    <div class="content">
+                      <ul class="list-unstyled">
+                          <li class="card card-nested">
+                            <div class="content">
+                              <p class="clear-margin">
+                                <strong>
+                                    <a href="http://tech.m6web.fr/immutablejs-relay-graphql-react-native/"  target="_blank">[Vidéo] Introduction à Immutable.js, Relay, GraphQL et React Native</a>
+                                </strong>,&nbsp;
+                                TechM6Web
+                              </p>
+                              <p class="text-muted">
+                                <small>
+                                  Publié le: Jan 04, 2015
+                                </small>
+                              </p>
+                              <p class="clear-margin">Compte rendu vidéo d&#x27;une étude de 3 technos découvertes à la Réact Conférence 2015 à San Francisco</p>
+                            </div>
+                          </li>
+                          <li class="card card-nested">
+                            <div class="content">
+                              <p class="clear-margin">
+                                <strong>
+                                    <a href="http://tech.m6web.fr/cr-react-conf-2015-day-one"  target="_blank">CR React Conférence 2015</a>
+                                </strong>,&nbsp;
+                                TechM6Web
+                              </p>
+                              <p class="text-muted">
+                                <small>
+                                  Publié le: Oct 02, 2015
+                                </small>
+                              </p>
+                              <p class="clear-margin">Compte rendu des 2 journées de la Réact Conférence 2015 à San Francisco.</p>
+                            </div>
+                          </li>
+                          <li class="card card-nested">
+                            <div class="content">
+                              <p class="clear-margin">
+                                <strong>
+                                    <a href="http://tech.m6web.fr/isomorphic-single-page-app-parfaite-react-flux/"  target="_blank">App isomorphic : La Single Page App parfaite ?</a>
+                                </strong>,&nbsp;
+                                TechM6Web
+                              </p>
+                              <p class="text-muted">
+                                <small>
+                                  Publié le: Dec 04, 2014
+                                </small>
+                              </p>
+                              <p class="clear-margin">Article présentant l&#x27;approche isomorphic pour créer une application JS tout en répondant à des problématiques de vitesse et de SEO.</p>
+                            </div>
+                          </li>
+                          <li class="card card-nested">
+                            <div class="content">
+                              <p class="clear-margin">
+                                <strong>
+                                    <a href="https://www.youtube.com/watch?v=7lgWS6NULXo"  target="_blank">[Conférencier] Nouveau socle pour une nouvelle vie chez M6Web - PHP Tour Lyon 2014</a>
+                                </strong>,&nbsp;
+                                YouTube
+                              </p>
+                              <p class="text-muted">
+                                <small>
+                                  Publié le: Jun 23, 2014
+                                </small>
+                              </p>
+                              <p class="clear-margin">Vidéo de ma conférence sur l&#x27;industrialisation chez M6Web.</p>
+                            </div>
+                          </li>
+                          <li class="card card-nested">
+                            <div class="content">
+                              <p class="clear-margin">
+                                <strong>
+                                    <a href="http://tech.m6web.fr/ameliorer-la-webperf-de-son-application-js-avec-gruntjs/"  target="_blank">Améliorer la webperf de son application JS avec GruntJs</a>
+                                </strong>,&nbsp;
+                                TechM6Web
+                              </p>
+                              <p class="text-muted">
+                                <small>
+                                  Publié le: Sep 30, 2014
+                                </small>
+                              </p>
+                              <p class="clear-margin">Conseils et outils pour optimiser les performances de son application JS.</p>
+                            </div>
+                          </li>
+                          <li class="card card-nested">
+                            <div class="content">
+                              <p class="clear-margin">
+                                <strong>
+                                    <a href="http://tech.m6web.fr/babitch-the-story-behind-our-table-soccer-web-application"  target="_blank">Babitch, The story behind our table soccer web application</a>
+                                </strong>,&nbsp;
+                                TechM6Web
+                              </p>
+                              <p class="text-muted">
+                                <small>
+                                  Publié le: Apr 23, 2014
+                                </small>
+                              </p>
+                              <p class="clear-margin">Article en anglais expliquant les origines de l&#x27;application pour gérer les scores de babyfoot que nous avons crées.</p>
+                            </div>
+                          </li>
+                          <li class="card card-nested">
+                            <div class="content">
+                              <p class="clear-margin">
+                                <strong>
+                                    <a href="http://tech.m6web.fr/velocity-europe-2013-day-1.html"  target="_blank">Compte rendu Velocity Europe 2013</a>
+                                </strong>,&nbsp;
+                                TechM6Web
+                              </p>
+                              <p class="text-muted">
+                                <small>
+                                  Publié le: Nov 14, 2013
+                                </small>
+                              </p>
+                              <p class="clear-margin">Compte rendu de la Vélocity Conférence à Londres sur la scalabilité et les performances web.</p>
+                            </div>
+                          </li>
+                          <li class="card card-nested">
+                            <div class="content">
+                              <p class="clear-margin">
+                                <strong>
+                                    <a href="http://tech.m6web.fr/performances-web-disaster-case-applications-mobile-native"  target="_blank">Performances web et &#x27;Disaster Case&#x27; sur applications mobile native</a>
+                                </strong>,&nbsp;
+                                TechM6Web
+                              </p>
+                              <p class="text-muted">
+                                <small>
+                                  Publié le: Jul 02, 2013
+                                </small>
+                              </p>
+                              <p class="clear-margin">Comment tester la performance et les cas limites d&#x27;une application native à l&#x27;aide de CharlesProxy.</p>
+                            </div>
+                          </li>
+                          <li class="card card-nested">
+                            <div class="content">
+                              <p class="clear-margin">
+                                <strong>
+                                    <a href="http://tech.m6web.fr/redis-on-fire"  target="_blank">[Vidéo] Redis on fire !</a>
+                                </strong>,&nbsp;
+                                YouTube
+                              </p>
+                              <p class="text-muted">
+                                <small>
+                                  Publié le: May 22, 2013
+                                </small>
+                              </p>
+                              <p class="clear-margin">Conférence vidéo pour présenter Redis aux équipes technique d&#x27;M6Web.</p>
+                            </div>
+                          </li>
+                          <li class="card card-nested">
+                            <div class="content">
+                              <p class="clear-margin">
+                                <strong>
+                                    <a href="http://tech.m6web.fr/cr-conference-agora-cms-du-15-mai-2013"  target="_blank">CR conférence Agora Cms 2013</a>
+                                </strong>,&nbsp;
+                                TechM6Web
+                              </p>
+                              <p class="text-muted">
+                                <small>
+                                  Publié le: May 20, 2013
+                                </small>
+                              </p>
+                              <p class="clear-margin">Conférence vidéo pour présenter Redis aux équipes technique d&#x27;M6Web.</p>
+                            </div>
+                          </li>
+                          <li class="card card-nested">
+                            <div class="content">
+                              <p class="clear-margin">
+                                <strong>
+                                    <a href="http://tech.m6web.fr/cr-real-time-conference-europe-2013-day-1"  target="_blank">CR Real Time Conférence 2013</a>
+                                </strong>,&nbsp;
+                                TechM6Web
+                              </p>
+                              <p class="text-muted">
+                                <small>
+                                  Publié le: Apr 25, 2013
+                                </small>
+                              </p>
+                              <p class="clear-margin">Compte rendu d&#x27;une conférence sur le &#x27;temps réel&#x27;</p>
+                            </div>
+                          </li>
+                          <li class="card card-nested">
+                            <div class="content">
+                              <p class="clear-margin">
+                                <strong>
+                                    <a href="http://tech.m6web.fr/organiser-des-conferences-technique-en-interne"  target="_blank">Organiser des conférences technique en interne</a>
+                                </strong>,&nbsp;
+                                TechM6Web
+                              </p>
+                              <p class="text-muted">
+                                <small>
+                                  Publié le: May 12, 2012
+                                </small>
+                              </p>
+                              <p class="clear-margin">Pourquoi les sociétés avec équipe technique devraient organiser des conférences interne.</p>
+                            </div>
+                          </li>
+                          <li class="card card-nested">
+                            <div class="content">
+                              <p class="clear-margin">
+                                <strong>
+                                    <a href="http://tech.m6web.fr/cr-velocity-conference-europe-2012-day-1"  target="_blank">CR Vélocity Conférence Europe 2012</a>
+                                </strong>,&nbsp;
+                                TechM6Web
+                              </p>
+                              <p class="text-muted">
+                                <small>
+                                  Publié le: Apr 10, 2012
+                                </small>
+                              </p>
+                              <p class="clear-margin">Compte rendu de la Vélocity Conférence à Londres sur la scalabilité et les performances web.</p>
+                            </div>
+                          </li>
+                          <li class="card card-nested">
+                            <div class="content">
+                              <p class="clear-margin">
+                                <strong>
+                                    <a href="http://tech.m6web.fr/cr-velocity-conference-day-1-dev-webperf"  target="_blank">CR Vélocity Conférence US 2012</a>
+                                </strong>,&nbsp;
+                                TechM6Web
+                              </p>
+                              <p class="text-muted">
+                                <small>
+                                  Publié le: Invalid date
+                                </small>
+                              </p>
+                              <p class="clear-margin">Compte rendu de la Vélocity Conférence à Santa Clara (U.S.) sur la scalabilité et les performances web.</p>
+                            </div>
+                          </li>
+                          <li class="card card-nested">
+                            <div class="content">
+                              <p class="clear-margin">
+                                <strong>
+                                    <a href="https://www.youtube.com/watch?v=VDAiz3d1_Po"  target="_blank">[Conférencier] Monitoring Applicatif, pourquoi et comment ? - Forum PHP (Paris) et Web Event #4 (Lyon)</a>
+                                </strong>,&nbsp;
+                                YouTube
+                              </p>
+                              <p class="text-muted">
+                                <small>
+                                  Publié le: Invalid date
+                                </small>
+                              </p>
+                              <p class="clear-margin">Vidéo de la conférence à la Web Event</p>
+                            </div>
+                          </li>
+                          <li class="card card-nested">
+                            <div class="content">
+                              <p class="clear-margin">
+                                <strong>
+                                    <a href="http://www.slideshare.net/kennydee/initiation-webperf-comprendre-analyser-et-optimiser-les-performances-web-frontend"  target="_blank">[Conférencier] Comprendre, mesurer et améliorer les performances Web - Web Event #3 à Lyon</a>
+                                </strong>,&nbsp;
+                                SlideShare
+                              </p>
+                              <p class="text-muted">
+                                <small>
+                                  Publié le: May 07, 2011
+                                </small>
+                              </p>
+                              <p class="clear-margin">Slides de ma présentation.</p>
+                            </div>
+                          </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="detail" id="interests">
+                  <div class="icon">
+                    <i class="fa fa-lg fa-heart"></i>
+                    <span class="mobile-title">Intêrets</span>
+                  </div>
+                  <div class="info">
+                    <h4 class="title text-uppercase">
+                      Intêrets
+                    </h4>
+
+                    <div class="content">
+                      <ul class="list-unstyled">
+                          <li class="card card-nested">
+                            <p>
+                              <strong>Jeux-vidéo</strong>
+                            </p>
+
+                            <div class="space-top labels">
+                                <span class="label label-keyword">Portal 2</span>
+                                <span class="label label-keyword">Ori and the blind forest</span>
+                                <span class="label label-keyword">Dying Light</span>
+                                <span class="label label-keyword">Fifa 15</span>
+                            </div>
+                          </li>
+                          <li class="card card-nested">
+                            <p>
+                              <strong>Jeux de société</strong>
+                            </p>
+
+                            <div class="space-top labels">
+                                <span class="label label-keyword">Magic the gathering</span>
+                                <span class="label label-keyword">Zombicide</span>
+                            </div>
+                          </li>
+                          <li class="card card-nested">
+                            <p>
+                              <strong>Sports</strong>
+                            </p>
+
+                            <div class="space-top labels">
+                                <span class="label label-keyword">Olympique Lyonnais</span>
+                            </div>
+                          </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/tooltip.js"></script>
+  </body>
 </html>
